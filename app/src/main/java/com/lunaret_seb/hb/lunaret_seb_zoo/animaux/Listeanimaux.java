@@ -1,5 +1,6 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.animaux;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -14,7 +15,7 @@ import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 import java.util.Arrays;
 import java.util.List;
 
-public class Listeanimaux extends ListActivity {
+public class Listeanimaux extends Activity {
     Animaux nanimal1 = new Animaux("totor");
     Animaux nanimal2 = new Animaux("tator");
     Animaux nanimal3 = new Animaux("totur");
@@ -36,7 +37,8 @@ public class Listeanimaux extends ListActivity {
         textList.setText("Liste des animaux du zoooooooooooooooooooo");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.item_liste, R.id.text, listAnimauxName);
-        setListAdapter(adapter);
+        ListView vueAnimaux = (ListView) findViewById(R.id.list);
+        vueAnimaux.setAdapter(adapter);
 
         FloatingActionButton fab_add_anim = (FloatingActionButton) findViewById(R.id.fab_add_anim);
         fab_add_anim.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +55,7 @@ public class Listeanimaux extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+        // super.onListItemClick(l, v, position, id);
 
         Intent intent = new Intent(this, DetailAnimal.class).putExtra("animal", listAnimaux.get(position)  );
         startActivity(intent);
