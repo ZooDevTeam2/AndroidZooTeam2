@@ -1,4 +1,4 @@
-package com.lunaret_seb.hb.lunaret_seb_zoo;
+package com.lunaret_seb.hb.lunaret_seb_zoo.animaux;
 
 import java.io.Serializable;
 import java.text.DateFormat;

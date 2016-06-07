@@ -1,15 +1,15 @@
-package com.lunaret_seb.hb.lunaret_seb_zoo;
+package com.lunaret_seb.hb.lunaret_seb_zoo.animaux;
 
 import android.app.ListActivity;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.lunaret_seb.hb.lunaret_seb_zoo;
+package com.lunaret_seb.hb.lunaret_seb_zoo.animaux;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 
 public class FormAddAnimaux extends AppCompatActivity {
 

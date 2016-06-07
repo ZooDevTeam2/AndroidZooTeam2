@@ -18,11 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Listeanimaux" />
-        <activity android:name=".DetailAnimal" />
+        <activity android:name=".animaux.Listeanimaux" />
+        <activity android:name=".animaux.DetailAnimal" />
         <activity android:name=".DetailEnclos" />
         <activity android:name=".ListeEnclos" />
-        <activity android:name=".FormAddAnimaux"></activity>
+        <activity android:name=".animaux.FormAddAnimaux"></activity>
     </application>
 
 </manifest>
