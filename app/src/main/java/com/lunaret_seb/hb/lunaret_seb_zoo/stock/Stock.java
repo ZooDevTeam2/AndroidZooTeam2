@@ -1,9 +1,11 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
+import java.io.Serializable;
+
 /**
  * Created by KEVIN on 07/06/2016.
  */
-public class Stock {
+public class Stock implements Serializable {
 
     private String name;
     private int quantities;
