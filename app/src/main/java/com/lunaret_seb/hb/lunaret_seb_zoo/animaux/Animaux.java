@@ -55,4 +55,12 @@ public class Animaux implements Serializable{
         int age = (2016 - (dateOfBorn.getYear()));
         return age;
     }
+    /*     @Override
+    public String toString() {
+        return "Animaux{" +
+                "name='" + name + '\'' +
+                ", specie='" + specie + '\'' +
+                ", dateOfBorn=" + dateOfBorn.toString() +
+                '}';
+    } */
 }

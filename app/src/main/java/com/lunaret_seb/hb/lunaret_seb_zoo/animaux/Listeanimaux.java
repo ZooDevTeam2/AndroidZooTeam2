@@ -72,11 +72,26 @@ public class Listeanimaux extends AppCompatActivity {
     }
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         if(requestCode == REQ_CODE_CHILD) {
+            super.onActivityResult(requestCode, resultCode, data);
 
-            Bundle extra = getIntent().getExtras();
-            Animaux animalForm = (Animaux) extra.get("animalFromForm");
+            String animalFormStr = (String) data.getStringExtra("animalFromForm");
 
-            Toast.makeText(getApplicationContext(), animalForm.getName()+" "+animalForm.getSpecie()+" "+animalForm.getDateOfBorn(), Toast.LENGTH_LONG).show();;
+            String[] separatedAnimaux = animalFormStr.split("\\*");
+            String name = separatedAnimaux[0];
+            String specie= separatedAnimaux[1];
+            String dateOfBornStr= separatedAnimaux[2];
+
+
+            String[] separated = dateOfBornStr.split("\\/");
+            int Year = Integer.valueOf(separated[0]);
+            int month= Integer.valueOf(separated[1]);
+            int day= Integer.valueOf(separated[2]);
+            Date dateOfBorn = new Date(Year,month,day);
+
+            Animaux animalForm = new Animaux(name,specie,dateOfBorn);
+
+
+            Toast.makeText(this, animalForm.getName()+" "+animalForm.getSpecie()+" "+animalForm.getDateOfBorn(), Toast.LENGTH_LONG).show();;
 
 
             // TODO LATER

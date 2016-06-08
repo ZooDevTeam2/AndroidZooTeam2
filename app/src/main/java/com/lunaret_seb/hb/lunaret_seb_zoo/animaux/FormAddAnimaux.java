@@ -42,15 +42,16 @@ public class FormAddAnimaux extends AppCompatActivity {
                     int month= Integer.valueOf(separated[1]);
                     int day= Integer.valueOf(separated[2]);
                     Date dateForm = new Date(Year,month,day);
-                    //For debug
-                    // textTitle.setText(dateForm.toString());
 
 
-                    final Animaux animalFromForm = new Animaux(""+fieldName.getText(),""+fieldSpecie.getText(),dateForm);
+
+                    final String animalFromForm = fieldName.getText().toString()+"*"+fieldSpecie.getText().toString()+"*"+fieldAge.getText().toString();
                     Intent intent = new Intent(FormAddAnimaux.this, Listeanimaux.class).putExtra("animalFromForm",animalFromForm);
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();
+                    //For debug
+                    // textTitle.setText(animalFromForm.toString());
                    // startActivity(intent);
                 }
             });
