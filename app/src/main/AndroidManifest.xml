@@ -22,10 +22,12 @@
         <activity android:name=".animaux.DetailAnimal" />
         <activity android:name=".DetailEnclos" />
         <activity android:name=".ListeEnclos" />
-        <activity android:name=".animaux.FormAddAnimaux"/>
+        <activity android:name=".animaux.FormAddAnimaux" />
         <activity android:name=".stock.ListStockActivity" />
-        <activity android:name=".stock.DetailStockActivity"></activity>
->>>>>>> kevin_stocklist
+        <activity android:name=".stock.DetailStockActivity" />
+        >>>>>>> kevin_stocklist
+        <activity android:name=".ticket.ListTicketActivity" />
+        <activity android:name=".ticket.DetailTicketActivity"></activity>
     </application>
 
 </manifest>

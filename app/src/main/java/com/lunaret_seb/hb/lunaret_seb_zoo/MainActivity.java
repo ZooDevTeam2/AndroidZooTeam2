@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
 import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
+import com.lunaret_seb.hb.lunaret_seb_zoo.ticket.ListTicketActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,9 +56,8 @@ public class MainActivity extends AppCompatActivity {
         fab_tiquet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Bouton Tiquets", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                textList.setText("Liste des tiquet du zoo");
+                Intent intent = new Intent(MainActivity.this, ListTicketActivity.class);
+                startActivity(intent);
             }
         });
     }
