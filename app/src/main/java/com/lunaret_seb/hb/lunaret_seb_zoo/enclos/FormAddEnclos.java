@@ -18,21 +18,21 @@ public class FormAddEnclos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_add_animaux);
-        final TextView textTitle = (TextView)findViewById(R.id.title_form_add_anim);
+        setContentView(R.layout.activity_form_add_enclos);
+        final TextView textTitle = (TextView)findViewById(R.id.title_form_add_enclos);
         textTitle.getText();
 
-        final EditText fieldName = (EditText)findViewById(R.id.form_field_name_add_anim);
-        final EditText fieldArea = (EditText)findViewById(R.id.form_field_specie_add_anim);
-        final EditText fieldDescription = (EditText)findViewById(R.id.form_field_age_add_anim);
+        final EditText fieldName = (EditText)findViewById(R.id.form_field_name_add_enclos);
+        final EditText fieldArea = (EditText)findViewById(R.id.form_field_Area_add_enclos);
+        final EditText fieldDescription = (EditText)findViewById(R.id.form_field_Description_add_enclos);
 
         final String enclosString = fieldName.getText() +"-"+ fieldDescription.getText() +"-"+ fieldArea.getText();
 
-        FloatingActionButton fab_add_anim_form = (FloatingActionButton) findViewById(R.id.fab_add_anim_form);
-        fab_add_anim_form.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_add_enclos_form = (FloatingActionButton) findViewById(R.id.fab_add_enclos_form);
+        fab_add_enclos_form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FormAddEnclos.this, Listeanimaux.class).putExtra("enclosSTR",enclosString);
+                Intent intent = new Intent(FormAddEnclos.this, ListEnclos.class).putExtra("enclosSTR",enclosString);
                 startActivity(intent);
             }
         });

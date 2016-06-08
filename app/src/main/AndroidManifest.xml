@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lunaret_seb.hb.lunaret_seb_zoo">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,22 +13,17 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".animaux.Listeanimaux" />
         <activity android:name=".animaux.DetailAnimal" />
-        <activity android:name=".DetailEnclos" />
-        <activity android:name=".ListeEnclos" />
         <activity android:name=".animaux.FormAddAnimaux" />
         <activity android:name=".stock.ListStockActivity" />
         <activity android:name=".stock.DetailStockActivity" />
         <activity android:name=".ticket.ListTicketActivity" />
         <activity android:name=".ticket.DetailTicketActivity"></activity>
-        <activity android:name=".stock.DetailStockActivity"></activity>
-        <activity android:name=".enclos.ListEnclosActivity"></activity>
+        <activity android:name=".enclos.ListEnclos"></activity>
         <activity android:name=".enclos.DetailEnclos"></activity>
     </application>
-
 </manifest>

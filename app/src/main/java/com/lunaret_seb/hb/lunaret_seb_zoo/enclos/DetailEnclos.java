@@ -29,10 +29,6 @@ public class DetailEnclos extends Activity {
     Button bouton;
     bouton= (Button) findViewById(R.id.btm);
 
-
-
-
-
 }
     public void onClickBtnSuppr(View v)
     {

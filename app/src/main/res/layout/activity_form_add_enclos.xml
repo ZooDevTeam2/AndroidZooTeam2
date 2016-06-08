@@ -30,20 +30,18 @@
         android:hint="Name of the enclos"
         />
     <EditText
-        android:id="@+id/form_field_specie_add_enclos"
+        android:id="@+id/form_field_Area_add_enclos"
         android:inputType="text"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:hint="Area"
         />
     <EditText
-        android:id="@+id/form_field_age_add_enclos"
-        android:inputType="datetime"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:id="@+id/form_field_Description_add_enclos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:hint="Description"
         />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add_enclos_form"
         android:layout_width="wrap_content"
