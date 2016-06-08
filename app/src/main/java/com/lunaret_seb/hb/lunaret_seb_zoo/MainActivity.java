@@ -10,12 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
-<<<<<<< HEAD
 import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
-=======
 import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
->>>>>>> kevin_stocklist
 
 public class MainActivity extends AppCompatActivity {
 
