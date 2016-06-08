@@ -20,10 +20,14 @@ public class DetailAnimal extends AppCompatActivity {
         Bundle extra = getIntent().getExtras();
         Animaux animal = (Animaux) extra.get("animal");
 
-        final TextView textList = (TextView)findViewById(R.id.text_detail);
-        textList.setText(animal.toString());
+        final TextView textListName = (TextView)findViewById(R.id.text_detail_name);
+        textListName.setText(animal.getName());
+        final TextView textListSpecie = (TextView)findViewById(R.id.text_detail_specie);
+        textListSpecie.setText(animal.getSpecie());
+        final TextView textListAge = (TextView)findViewById(R.id.text_detail_age);
+        textListAge.setText(""+animal.getAge());
 
-        //TODO SPECIE AND AGE + ONCLICK ON THE BUTTON
+        //TODO WHEN ONCLICK ON THE BUTTON, ASK A CONFIRMATION AND THEN DELETE THE CURRENT ANIMAL
 
         Button bouton;
         bouton= (Button) findViewById(R.id.btm);

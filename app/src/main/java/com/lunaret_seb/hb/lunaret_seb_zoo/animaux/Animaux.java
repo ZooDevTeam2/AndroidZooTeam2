@@ -50,4 +50,9 @@ public class Animaux implements Serializable{
     public String toString() {
         return   name+ " ("+specie+")";
     }
+
+    public int getAge(){
+        int age = (2016 - (dateOfBorn.getYear()));
+        return age;
+    }
 }
