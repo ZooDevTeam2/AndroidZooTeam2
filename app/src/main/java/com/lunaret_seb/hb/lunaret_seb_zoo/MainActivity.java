@@ -3,7 +3,6 @@ package com.lunaret_seb.hb.lunaret_seb_zoo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
-import com.lunaret_seb.hb.lunaret_seb_zoo.enclos.ListEnclosActivity;
+import com.lunaret_seb.hb.lunaret_seb_zoo.enclos.ListEnclos;
 import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
 import com.lunaret_seb.hb.lunaret_seb_zoo.ticket.ListTicketActivity;
 
@@ -35,15 +34,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
         FloatingActionButton fab_enclos = (FloatingActionButton) findViewById(R.id.fab_enclos);
         fab_enclos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textList.setText("Liste des enclos du zoo");
-                Intent intent = new Intent(MainActivity.this, ListEnclosActivity.class);
+                Intent intent = new Intent(MainActivity.this, ListEnclos.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
