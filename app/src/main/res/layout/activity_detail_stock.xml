@@ -29,13 +29,26 @@
     android:layout_height="wrap_content"
         android:layout_weight="0">
     </TextView>
-        <Button
-            android:layout_width= "wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Ajouter quantité"
-            android:id="@+id/add_quantities"
-            />
+            android:gravity="center">
+            <Button
+                android:layout_width= "wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:text="Ajouter quantité"
+                android:id="@+id/add_quantities"
+                />
+            <Button
+                android:layout_width= "wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:text="Supprimer quantité"
+                android:id="@+id/del_quantities"
+                />
+        </LinearLayout>
+
     <TextView
         android:id="@+id/max"
         android:layout_width="wrap_content"
