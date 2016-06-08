@@ -1,7 +1,7 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.animaux;
 
 import java.io.Serializable;
-import java.text.DateFormat;
+import java.util.Date;
 
 /**
  * Created by hb on 07/06/2016.
@@ -10,13 +10,13 @@ public class Animaux implements Serializable{
 
     private String name;
     private String specie;
-    private DateFormat dateOfBorn;
+    private Date dateOfBorn;
 
     public Animaux(String name) {
         this.name = name;
     }
 
-    public Animaux(String name, String specie, DateFormat dateOfBorn) {
+    public Animaux(String name, String specie, Date dateOfBorn) {
         this.name = name;
         this.specie = specie;
         this.dateOfBorn = dateOfBorn;
@@ -30,11 +30,11 @@ public class Animaux implements Serializable{
         this.name = name;
     }
 
-    public DateFormat getDateOfBorn() {
+    public Date getDateOfBorn() {
         return dateOfBorn;
     }
 
-    public void setDateOfBorn(DateFormat dateOfBorn) {
+    public void setDateOfBorn(Date dateOfBorn) {
         this.dateOfBorn = dateOfBorn;
     }
 
@@ -46,5 +46,8 @@ public class Animaux implements Serializable{
         this.specie = specie;
     }
 
-
+    @Override
+    public String toString() {
+        return   name+ " ("+specie+")";
+    }
 }

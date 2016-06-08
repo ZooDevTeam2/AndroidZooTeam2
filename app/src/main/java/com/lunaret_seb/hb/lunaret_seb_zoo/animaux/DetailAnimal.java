@@ -1,14 +1,13 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.animaux;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
-import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Animaux;
 
 public class DetailAnimal extends AppCompatActivity {
 
@@ -22,7 +21,7 @@ public class DetailAnimal extends AppCompatActivity {
         Animaux animal = (Animaux) extra.get("animal");
 
         final TextView textList = (TextView)findViewById(R.id.text_detail);
-        textList.setText(animal.getName());
+        textList.setText(animal.toString());
 
         //TODO SPECIE AND AGE + ONCLICK ON THE BUTTON
 
