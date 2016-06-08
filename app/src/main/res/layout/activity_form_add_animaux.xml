@@ -43,7 +43,7 @@
         android:layout_height="50dp"
         android:hint="Date of born (ex: 2010/12/10)"
         />
-
+<!-- TODO PUT ALL TEXT OF THE APP ON STRING.XML FOR AN EASIER PORTAGE TO OTHER LANGUAGES -->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add_anim_form"
         android:layout_width="wrap_content"

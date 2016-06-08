@@ -27,8 +27,8 @@ public class DetailAnimal extends AppCompatActivity {
         final TextView textListAge = (TextView)findViewById(R.id.text_detail_age);
         textListAge.setText(""+animal.getAge());
 
-        //TODO WHEN ONCLICK ON THE BUTTON, ASK A CONFIRMATION AND THEN DELETE THE CURRENT ANIMAL
-
+        //TODO WHEN ONCLICK ON THE DELETE BUTTON, ASK FOR A CONFIRMATION AND THEN, DELETE THE CURRENT ANIMAL
+        //TODO A MODIFY BUTTON + AN ACTIVITY FOR IT, WHERE YOU CAN UPDATE THE CURRENT OBJECT.
         Button bouton;
         bouton= (Button) findViewById(R.id.btm);
 
