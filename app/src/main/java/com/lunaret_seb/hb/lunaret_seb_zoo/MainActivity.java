@@ -11,7 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
+=======
+import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
+>>>>>>> kevin_stocklist
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         fab_stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textList.setText("Liste des stock du zoo");
+                Intent intent = new Intent(MainActivity.this, ListStockActivity.class);
+                startActivity(intent);
             }
         });
         FloatingActionButton fab_tiquet = (FloatingActionButton) findViewById(R.id.fab_tiquet);

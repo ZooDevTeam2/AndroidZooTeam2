@@ -22,7 +22,13 @@
         <activity android:name=".animaux.DetailAnimal" />
         <activity android:name=".DetailEnclos" />
         <activity android:name=".ListeEnclos" />
+<<<<<<< HEAD
         <activity android:name=".animaux.FormAddAnimaux"></activity>
+=======
+        <activity android:name=".FormAddAnimaux" />
+        <activity android:name=".stock.ListStockActivity" />
+        <activity android:name=".stock.DetailStockActivity"></activity>
+>>>>>>> kevin_stocklist
     </application>
 
 </manifest>
