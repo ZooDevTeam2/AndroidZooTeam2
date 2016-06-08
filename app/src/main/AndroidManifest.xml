@@ -23,7 +23,8 @@
         <activity android:name=".DetailEnclos" />
         <activity android:name=".ListeEnclos" />
         <activity android:name=".FormAddAnimaux" />
-        <activity android:name=".stock.ListStockActivity"></activity>
+        <activity android:name=".stock.ListStockActivity" />
+        <activity android:name=".stock.DetailStockActivity"></activity>
     </application>
 
 </manifest>

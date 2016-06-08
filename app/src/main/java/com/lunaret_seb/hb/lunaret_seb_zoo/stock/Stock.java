@@ -17,6 +17,10 @@ public class Stock implements Serializable {
         this.maximum = maximum;
     }
 
+    @Override
+    public String toString() {
+        return (name+" ("+quantities+")");
+    }
     public String getName() {
         return name;
     }
