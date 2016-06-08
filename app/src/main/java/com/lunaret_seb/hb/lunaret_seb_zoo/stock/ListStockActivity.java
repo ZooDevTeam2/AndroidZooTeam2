@@ -20,7 +20,6 @@ public class ListStockActivity extends AppCompatActivity {
     Stock stock3 = new Stock("Viande",50,400);
 
     List<Stock> listStock = new ArrayList<>();
-    List<String> listNameStock = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +34,9 @@ public class ListStockActivity extends AppCompatActivity {
         listStock.add(stock2);
         listStock.add(stock3);
 
-        //Creation of the list of string to send to the view with the adapter
-        for(int i=0; i < listStock.size();i++ ){
-            listNameStock.add(listStock.get(i).toString());
-        }
         //Initialization of the adapter
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,
-                R.layout.item_liste, R.id.text, listNameStock);
+        ArrayAdapter<Stock> adapter= new ArrayAdapter<Stock>(this,
+                       R.layout.item_liste, R.id.text, listStock);
 
         ListView listView = (ListView) findViewById(R.id.list);
         //Here, the id of the view is linking directly on the id of the ListView of
@@ -52,7 +47,7 @@ public class ListStockActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListStockActivity.this, DetailStockActivity.class).putExtra("stock", listNameStock.get(position)  );
+                Intent intent = new Intent(ListStockActivity.this, DetailStockActivity.class).putExtra("stock", listStock.get(position)  );
                 startActivity(intent);
             }
         });
