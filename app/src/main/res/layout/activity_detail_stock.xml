@@ -1,12 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="com.lunaret_seb.hb.lunaret_seb_zoo.stock.DetailStockActivity"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.lunaret_seb.hb.lunaret_seb_zoo.stock.DetailStockActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:layout_weight="0">
+    </TextView>
+
+    <TextView
+    android:id="@+id/quantities"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:layout_weight="0">
+    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:layout_width= "wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:text="Ajouter quantité"
+                android:id="@+id/add_quantities"
+                />
+            <Button
+                android:layout_width= "wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:text="Supprimer quantité"
+                android:id="@+id/del_quantities"
+                />
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+    </TextView>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity= "bottom|center"
+        android:layout_weight="1">
+        <Button
+            android:id= "@+id/btm"
+            android:layout_width= "wrap_content"
+            android:layout_height= "wrap_content"
+            android:text= "Supprimer la fourniture"
+            android:onClick="onClickBtnSuppr" />
+
+    </LinearLayout>
+
+</LinearLayout>
