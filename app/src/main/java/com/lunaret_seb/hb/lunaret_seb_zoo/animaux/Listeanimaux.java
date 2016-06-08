@@ -66,8 +66,6 @@ public class Listeanimaux extends AppCompatActivity {
             });
         }
 
-        //TODO RECUP DES INFO DU FORM D'AJOUT D'ANIMAUX POUR LES AFFICHER DANS LE TOAST
-        // Toast.makeText(animalSTR"", "msg msg", Toast.LENGTH_LONG).show();
 
     }
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
@@ -93,9 +91,6 @@ public class Listeanimaux extends AppCompatActivity {
 
             Toast.makeText(this, animalForm.getName()+" "+animalForm.getSpecie()+" "+animalForm.getDateOfBorn(), Toast.LENGTH_LONG).show();;
 
-
-            // TODO LATER
-            // animal = data.getExtras().getSerializable("STRING_GOES_HERE");
         }
 
 

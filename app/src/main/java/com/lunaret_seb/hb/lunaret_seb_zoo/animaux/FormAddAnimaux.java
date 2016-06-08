@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 
-import java.util.Date;
-
 public class FormAddAnimaux extends AppCompatActivity {
 
     @Override
@@ -26,7 +24,6 @@ public class FormAddAnimaux extends AppCompatActivity {
         final EditText fieldSpecie = (EditText)findViewById(R.id.form_field_specie_add_anim);
         final EditText fieldAge = (EditText)findViewById(R.id.form_field_age_add_anim);
 
-        final String animalString = fieldName.getText() +"-"+ fieldSpecie.getText() +"-"+ fieldAge.getText();
 
 
 
@@ -37,22 +34,13 @@ public class FormAddAnimaux extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    String[] separated = fieldAge.getText().toString().split("\\/");
-                    int Year = Integer.valueOf(separated[0]);
-                    int month= Integer.valueOf(separated[1]);
-                    int day= Integer.valueOf(separated[2]);
-                    Date dateForm = new Date(Year,month,day);
-
-
 
                     final String animalFromForm = fieldName.getText().toString()+"*"+fieldSpecie.getText().toString()+"*"+fieldAge.getText().toString();
                     Intent intent = new Intent(FormAddAnimaux.this, Listeanimaux.class).putExtra("animalFromForm",animalFromForm);
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();
-                    //For debug
-                    // textTitle.setText(animalFromForm.toString());
-                   // startActivity(intent);
+
                 }
             });
         }
