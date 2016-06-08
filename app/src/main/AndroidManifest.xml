@@ -22,7 +22,14 @@
         <activity android:name=".animaux.DetailAnimal" />
         <activity android:name=".DetailEnclos" />
         <activity android:name=".ListeEnclos" />
-        <activity android:name=".animaux.FormAddAnimaux"></activity>
+        <activity android:name=".animaux.FormAddAnimaux" />
+        <activity android:name=".stock.ListStockActivity" />
+        <activity android:name=".stock.DetailStockActivity" />
+        <activity android:name=".ticket.ListTicketActivity" />
+        <activity android:name=".ticket.DetailTicketActivity"></activity>
+        <activity android:name=".stock.DetailStockActivity"></activity>
+        <activity android:name=".enclos.ListEnclosActivity"></activity>
+        <activity android:name=".enclos.DetailEnclos"></activity>
     </application>
 
 </manifest>

@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
+import com.lunaret_seb.hb.lunaret_seb_zoo.enclos.ListEnclosActivity;
+import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
+import com.lunaret_seb.hb.lunaret_seb_zoo.ticket.ListTicketActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,22 +43,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 textList.setText("Liste des enclos du zoo");
+                Intent intent = new Intent(MainActivity.this, ListEnclosActivity.class);
+                startActivity(intent);
             }
         });
         FloatingActionButton fab_stock = (FloatingActionButton) findViewById(R.id.fab_stock);
         fab_stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textList.setText("Liste des stock du zoo");
+                Intent intent = new Intent(MainActivity.this, ListStockActivity.class);
+                startActivity(intent);
             }
         });
         FloatingActionButton fab_tiquet = (FloatingActionButton) findViewById(R.id.fab_tiquet);
         fab_tiquet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Bouton Tiquets", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                textList.setText("Liste des tiquet du zoo");
+                Intent intent = new Intent(MainActivity.this, ListTicketActivity.class);
+                startActivity(intent);
             }
         });
     }
