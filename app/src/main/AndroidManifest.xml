@@ -25,5 +25,10 @@
         <activity android:name=".ticket.DetailTicketActivity"></activity>
         <activity android:name=".enclos.ListEnclos"></activity>
         <activity android:name=".enclos.DetailEnclos"></activity>
+        <activity android:name=".ticket.DetailTicketActivity" />
+        <activity android:name=".enclos.ListEnclosActivity" />
+        <activity android:name=".stock.DetailStockActivity" />
+        <activity android:name=".enclos.DetailEnclos" />
+        <activity android:name=".stock.FormAddStockActivity"></activity>
     </application>
 </manifest>
