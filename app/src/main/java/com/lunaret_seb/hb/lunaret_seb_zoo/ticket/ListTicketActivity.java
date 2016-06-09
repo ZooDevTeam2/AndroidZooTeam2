@@ -1,6 +1,7 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.ticket;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,7 +56,7 @@ public class ListTicketActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListTicketActivity.this, DetailTicketActivity.class).putExtra("stock", listTicket.get(position)  );
+                Intent intent = new Intent(ListTicketActivity.this, DetailTicketActivity.class).putExtra("Ticket", listTicket.get(position)  );
                 startActivity(intent);
             }
         });
