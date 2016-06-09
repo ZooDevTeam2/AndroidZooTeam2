@@ -25,21 +25,21 @@
         <EditText
             android:id="@+id/form_field_name_add_stock"
             android:inputType="text"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Name of the the stock"
             />
         <EditText
             android:id="@+id/form_field_quantities_add_anim"
             android:inputType="number"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Initial quantities (ex: 500)"
             />
         <EditText
             android:id="@+id/form_field_max_add_anim"
             android:inputType="number"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Maximum quantities (ex: 3000)"
             />
