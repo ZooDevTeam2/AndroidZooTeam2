@@ -30,12 +30,6 @@ public class FormAddStockActivity extends AppCompatActivity {
         fab_add_anim_form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                final String stockFromForm = fieldName.getText().toString()+"*"+fieldSpecie.getText().toString()+"*"+fieldAge.getText().toString();
-                Intent intent = new Intent(FormAddStockActivity.this, ListStockActivity.class).putExtra("stockFromForm",stockFromForm);
-
-                setResult(Activity.RESULT_OK, intent);
                 finish();
 
             }

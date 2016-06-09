@@ -1,7 +1,5 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
-import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,10 +64,21 @@ public class ListStockActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(ListStockActivity.this, FormAddStockActivity.class);
                     startActivityForResult(intent, REQ_CODE_CHILD);
-
                 }
             });
         }
+    }
+
+    @Override
+    protected void onRestart() {
+
+        // TODO Auto-generated method stub
+        super.onRestart();
+        Intent i = new Intent(ListStockActivity.this, ListStockActivity.class);
+        Toast.makeText(this,"Mise à jour de la liste", Toast.LENGTH_LONG).show();//your class
+        startActivity(i);
+        finish();
+
     }
 }
 
