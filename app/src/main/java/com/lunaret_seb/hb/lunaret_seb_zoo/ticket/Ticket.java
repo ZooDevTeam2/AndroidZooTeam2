@@ -33,8 +33,9 @@ public class Ticket implements Serializable {
     }
 
     // Constructor
-    public Ticket(String name) {
+    public Ticket(String name, double price) {
         this.name = name;
+        this.price = price;
     }
 
 }
