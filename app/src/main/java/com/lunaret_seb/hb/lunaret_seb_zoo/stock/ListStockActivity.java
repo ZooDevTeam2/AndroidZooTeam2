@@ -1,14 +1,12 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -42,6 +40,19 @@ public class ListStockActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ListStockIntentService.class);
         startService(intent);
+        ServiceConnection connection = new ServiceConnection(){
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                ListStockBinder binder = (ListStockBinder)service;
+                Toast.makeText(ListStockActivity.this,binder.getToast(),Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+
+            }
+        };
+        bindService(intent, connection ,0);
+
 
         //Hard creation of the list of referenced stock
         listStock.add(stock1);

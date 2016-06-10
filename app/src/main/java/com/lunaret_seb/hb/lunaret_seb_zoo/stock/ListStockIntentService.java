@@ -2,8 +2,7 @@ package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.Context;
-import android.os.Binder;
+
 import android.os.IBinder;
 import android.widget.Toast;
 
@@ -13,14 +12,14 @@ public class ListStockIntentService extends IntentService {
         super("ListStockIntentService");
     }
     @Override
-    public IBinder onBind(Intent arg0) {
-        return null;
+    public IBinder onBind(Intent intent) {
+        IBinder binder= new ListStockBinder(this);
+        return binder;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         // Let it continue running until it is stopped.
-        Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
         return START_STICKY;
     }
 
