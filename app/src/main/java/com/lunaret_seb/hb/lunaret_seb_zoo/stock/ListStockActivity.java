@@ -1,9 +1,11 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,8 @@ public class ListStockActivity extends AppCompatActivity {
 
     List<Stock> listStock = new ArrayList<>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,9 @@ public class ListStockActivity extends AppCompatActivity {
         //Display of the text introduction of the activity
         final TextView textList = (TextView) findViewById(R.id.text_list_app);
         textList.setText("Liste des stocks");
+
+        Intent intent = new Intent(this, ListStockService.class);
+        startService(intent);
 
         //Hard creation of the list of referenced stock
         listStock.add(stock1);
@@ -75,7 +82,6 @@ public class ListStockActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onRestart();
         Intent i = new Intent(ListStockActivity.this, ListStockActivity.class);
-        Toast.makeText(this,"Mise à jour de la liste", Toast.LENGTH_LONG).show();//your class
         startActivity(i);
         finish();
 
