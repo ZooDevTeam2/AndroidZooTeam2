@@ -33,6 +33,11 @@
             android:name=".animaux.AnimauxService"
             android:enabled="true"
             android:exported="true"></service>
+
+        <activity
+            android:name=".ticket.FormAddTicketActivity"
+            android:label="@string/title_activity_form_add_ticket"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

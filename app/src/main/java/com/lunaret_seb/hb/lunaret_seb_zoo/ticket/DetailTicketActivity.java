@@ -23,6 +23,9 @@ public class DetailTicketActivity extends Activity {
         final TextView name = (TextView)findViewById(R.id.name);
         name.setText(ticket.getName());
 
+        final TextView price = (TextView)findViewById(R.id.price);
+        price.setText(""+ticket.getPrice());
+
         Button bouton;
         bouton= (Button) findViewById(R.id.btm);
     }
