@@ -1,7 +1,6 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
+
+import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.ListeAnimaux;
 import com.lunaret_seb.hb.lunaret_seb_zoo.enclos.ListEnclos;
 import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
 import com.lunaret_seb.hb.lunaret_seb_zoo.ticket.ListTicketActivity;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
              //   textList.setText("Liste des animaux du zoo");
-                Intent intent = new Intent(MainActivity.this, Listeanimaux.class);
+                Intent intent = new Intent(MainActivity.this, ListeAnimaux.class);
                 startActivity(intent);
             }
         });

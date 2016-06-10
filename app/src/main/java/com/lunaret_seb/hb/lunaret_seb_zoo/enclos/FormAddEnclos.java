@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
-import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.Listeanimaux;
 
 /**
  * Created by youssefbee on 6/8/16.

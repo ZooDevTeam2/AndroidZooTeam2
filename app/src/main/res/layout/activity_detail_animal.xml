@@ -35,11 +35,18 @@
     android:gravity= "bottom|center"
     android:layout_weight="1">
  <Button
-    android:id= "@+id/btm"
+    android:id= "@+id/btm_suppr_anim"
     android:layout_width= "wrap_content"
     android:layout_height= "wrap_content"
     android:text= "Supprimer l'animal"
     android:onClick="onClickBtnSuppr" />
+
+    <Button
+        android:id= "@+id/btm_edit_anim"
+        android:layout_width= "wrap_content"
+        android:layout_height= "wrap_content"
+        android:text= "Modifier l'animal"
+        android:onClick="onClickBtnSuppr" />
 
 </LinearLayout>
 
