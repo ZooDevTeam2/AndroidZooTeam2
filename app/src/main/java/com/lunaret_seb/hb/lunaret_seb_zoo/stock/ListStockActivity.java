@@ -16,14 +16,16 @@ import android.widget.Toast;
 
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListStockActivity extends AppCompatActivity {
 
     public final static int REQ_CODE_CHILD = 1;
 
-    private ArrayList<Stock> listStock = new ArrayList<>();
     private ArrayList<Integer> listStockInt = new ArrayList<>();
+    private ArrayList<Stock> listStock = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

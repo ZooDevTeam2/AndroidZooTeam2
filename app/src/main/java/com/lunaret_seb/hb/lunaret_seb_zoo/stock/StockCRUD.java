@@ -12,8 +12,7 @@ public class StockCRUD {
 
     public StockCRUD() {
 
-        List<Stock> listStock = new ArrayList<Stock>();
-
+         listStock = new ArrayList<Stock>();
         listStock.add(new Stock("Carotte",300,500,1));
         listStock.add(new Stock("Viande",300,1000,2));
         listStock.add(new Stock("Poisson",120,700,3));
