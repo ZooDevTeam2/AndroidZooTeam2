@@ -15,19 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ListStockActivity extends AppCompatActivity {
 
     public final static int REQ_CODE_CHILD = 1;
-
-    Stock stock1 = new Stock("Carotte", 150, 500);
-    Stock stock2 = new Stock("Poisson", 70, 350);
-    Stock stock3 = new Stock("Viande", 50, 400);
-
-    List<Stock> listStock = new ArrayList<>();
-
 
 
     @Override
@@ -38,6 +29,7 @@ public class ListStockActivity extends AppCompatActivity {
         final TextView textList = (TextView) findViewById(R.id.text_list_app);
         textList.setText("Liste des stocks");
 
+        
         Intent intent = new Intent(this, ListStockIntentService.class);
         startService(intent);
         ServiceConnection connection = new ServiceConnection(){
@@ -55,9 +47,6 @@ public class ListStockActivity extends AppCompatActivity {
 
 
         //Hard creation of the list of referenced stock
-        listStock.add(stock1);
-        listStock.add(stock2);
-        listStock.add(stock3);
 
         //Initialization of the adapter
         ArrayAdapter<Stock> adapter = new ArrayAdapter<Stock>(this,
