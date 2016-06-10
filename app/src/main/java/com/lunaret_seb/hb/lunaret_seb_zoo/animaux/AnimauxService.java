@@ -48,4 +48,5 @@ public class AnimauxService extends Service {
         Toast.makeText(this, "Toaster from List Animaux" , Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
+    
 }
