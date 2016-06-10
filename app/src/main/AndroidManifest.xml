@@ -30,9 +30,8 @@
         <activity android:name=".stock.FormAddStockActivity" />
 
         <service
-            android:name=".stock.ListStockService"
-            android:enabled="true"
-            android:exported="true"></service>
+            android:name=".stock.ListStockIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
