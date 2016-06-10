@@ -16,18 +16,33 @@ import android.widget.Toast;
 
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
 
+import java.util.ArrayList;
+
 public class ListStockActivity extends AppCompatActivity {
 
     public final static int REQ_CODE_CHILD = 1;
 
+    private ArrayList<Stock> listStock = new ArrayList<>();
+    private ArrayList<Integer> listStockInt = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_stock);
         //Display of the text introduction of the activity
+
+
+        StockCRUD stockCRUD = new StockCRUD();
+        listStock = stockCRUD.retrieveAll();
+
+        for(Stock stock : listStock){
+            listStockInt.add(stock.getId());
+        }
+
         final TextView textList = (TextView) findViewById(R.id.text_list_app);
         textList.setText("Liste des stocks");
+
+
 
         
         Intent intent = new Intent(this, ListStockIntentService.class);
