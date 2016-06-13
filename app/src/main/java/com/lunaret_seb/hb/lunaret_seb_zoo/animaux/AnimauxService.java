@@ -27,8 +27,14 @@ public class AnimauxService extends Service {
     public void onCreate() {
         super.onCreate();
 
+/*
+        AnimauxCRUD animauxCRUD = new AnimauxCRUD();
+        final ArrayList<Animaux> listAnimaux = animauxCRUD.retrieveAll();
 
-
+        ArrayAdapter<Animaux> adapter = new ArrayAdapter<Animaux>(this, R.layout.item_liste, R.id.text, listAnimaux);
+        ListView vueAnimaux = (ListView) findViewById(R.id.list_anim);
+        vueAnimaux.setAdapter(adapter);
+*/
     }
 
     @Override

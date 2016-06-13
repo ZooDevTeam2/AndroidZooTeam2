@@ -28,7 +28,6 @@ public class ListeAnimaux extends AppCompatActivity {
     private Animaux nanimal5 = new Animaux("tontonr", "Tiger",  new Date(2014,06,06));
 */
 
-    private ArrayList<Animaux> listAnimaux = new ArrayList<>();
     private ArrayList<String> listAnimauxSTR = new ArrayList<>();
 
     @Override
@@ -36,23 +35,21 @@ public class ListeAnimaux extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_animaux);
 
-        //TODO RECUPERER UNE LIST DANIMAUX
+        final TextView textList = (TextView)findViewById(R.id.text_list_app);
+        textList.setText("Liste des animaux du zoooooooooooooooooooo");
+
+
         AnimauxCRUD animauxCRUD = new AnimauxCRUD();
-        final ArrayList<Animaux> listAnimaux;
-        listAnimaux = animauxCRUD.retrieveAll();
-
-
+        final ArrayList<Animaux> listAnimaux = animauxCRUD.retrieveAll();
 
         for(Animaux animal : listAnimaux){
             listAnimauxSTR.add(animal.getName());
         }
 
-        final TextView textList = (TextView)findViewById(R.id.text_list_app);
-        textList.setText("Liste des animaux du zoooooooooooooooooooo");
 
         ArrayAdapter<Animaux> adapter = new ArrayAdapter<Animaux>(this,R.layout.item_liste, R.id.text, listAnimaux);
-        ListView vueAnimaux = (ListView) findViewById(R.id.list);
-        vueAnimaux.setAdapter(adapter); /* ça plante ici */
+        ListView vueAnimaux = (ListView) findViewById(R.id.list_anim);
+        vueAnimaux.setAdapter(adapter);
 
         // creation of the service for the list
         Intent intentAnimService = new Intent (this, AnimauxService.class).putExtra("listAnim", listAnimauxSTR);
