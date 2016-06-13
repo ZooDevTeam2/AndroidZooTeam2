@@ -33,8 +33,8 @@ public class ApiSyncService extends IntentService {
     public static final String CREATE_ACTION = "create";
     public static final String REPOSITORY_NAME = "name";
     private static final String TAG = ApiSyncService.class.getSimpleName();
-    public static final String PASSWORD = "Jaimelespommes1!";
-    public static final String USERNAME = "SebastienGrana";
+    public static final String PASSWORD = "password";
+    public static final String USERNAME = "username";
     private static List<Repository> previousResults = Collections.emptyList();
 
     /*Provides a name for the started thread, may be usefull in debug*/
