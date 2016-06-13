@@ -1,4 +1,4 @@
-package com.humanbooster.android.retrofitservice;
+package com.lunaret_seb.hb.lunaret_seb_zoo.webServices;
 
 import android.app.IntentService;
 import android.content.Context;
@@ -32,14 +32,14 @@ public class ApiSyncService extends IntentService {
 
     public static final String CREATE_ACTION = "create";
     public static final String REPOSITORY_NAME = "name";
-    private static final String TAG = com.humanbooster.android.retrofitservice.ApiSyncService.class.getSimpleName();
-    public static final String PASSWORD = "password";
-    public static final String USERNAME = "username";
+    private static final String TAG = ApiSyncService.class.getSimpleName();
+    public static final String PASSWORD = "Jaimelespommes1!";
+    public static final String USERNAME = "SebastienGrana";
     private static List<Repository> previousResults = Collections.emptyList();
 
     /*Provides a name for the started thread, may be usefull in debug*/
     public ApiSyncService() {
-        super(com.humanbooster.android.retrofitservice.ApiSyncService.class.getSimpleName());
+        super(ApiSyncService.class.getSimpleName());
     }
 
     private static TextView view;
@@ -50,7 +50,7 @@ public class ApiSyncService extends IntentService {
      * @see IntentService
      */
     public static void startCreateRepositoryAction(Context context, String repositoryName, TextView textView) {
-        Intent intent = new Intent(context, com.humanbooster.android.retrofitservice.ApiSyncService.class);
+        Intent intent = new Intent(context, ApiSyncService.class);
         intent.setAction(CREATE_ACTION);
         intent.putExtra(REPOSITORY_NAME, repositoryName);
         view = textView;
