@@ -13,19 +13,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.lunaret_seb.hb.lunaret_seb_zoo.R;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListStockActivity extends AppCompatActivity {
 
     public final static int REQ_CODE_CHILD = 1;
 
-    private ArrayList<Integer> listStockInt = new ArrayList<>();
-    private ArrayList<Stock> listStock = new ArrayList<>();
+    private ArrayList<Stock> listStock;
+    private StockCRUD stockCRUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,41 +29,12 @@ public class ListStockActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_stock);
         //Display of the text introduction of the activity
 
-
-        StockCRUD stockCRUD = new StockCRUD();
-        listStock = stockCRUD.retrieveAll();
-
-        for(Stock stock : listStock){
-            listStockInt.add(stock.getId());
-        }
-
         final TextView textList = (TextView) findViewById(R.id.text_list_app);
         textList.setText("Liste des stocks");
-
-
-
-        
-        Intent intent = new Intent(this, ListStockIntentService.class);
-        startService(intent);
-        ServiceConnection connection = new ServiceConnection(){
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                ListStockBinder binder = (ListStockBinder)service;
-                Toast.makeText(ListStockActivity.this,binder.getToast(),Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-
-            }
-        };
-        bindService(intent, connection ,0);
-
-
         //Hard creation of the list of referenced stock
-
         //Initialization of the adapter
         ArrayAdapter<Stock> adapter = new ArrayAdapter<Stock>(this,
-                R.layout.item_liste, R.id.text, listStock);
+                R.layout.item_liste, R.id.text, stockCRUD.retrieveAll(this));
 
         ListView listView = (ListView) findViewById(R.id.list);
         //Here, the id of the view is linking directly on the id of the ListView of

@@ -1,7 +1,11 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by KEVIN on 10/06/2016.
@@ -12,7 +16,7 @@ public class StockCRUD {
 
     public StockCRUD() {
 
-         listStock = new ArrayList<Stock>();
+        listStock = new ArrayList<Stock>();
         listStock.add(new Stock("Carotte",300,500,1));
         listStock.add(new Stock("Viande",300,1000,2));
         listStock.add(new Stock("Poisson",120,700,3));
@@ -44,7 +48,23 @@ public class StockCRUD {
         }
         return null;
         }
-public ArrayList<Stock> retrieveAll(){
-        return listStock;
+
+public ArrayList<Stock> retrieveAll(Context context){
+    Intent intent = new Intent(context, ListStockIntentService.class);
+    context.startService(intent);
+    ServiceConnection connection = new ServiceConnection(){
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+    ListStockBinder binder = (ListStockBinder)service;
+    listStock = binder.getListStock();
+        }
+     @Override
+     public void onServiceDisconnected(ComponentName name) {
+
+    }
+    };
+     context.bindService(intent, connection ,0);
+
+    return listStock;
         }
 }
