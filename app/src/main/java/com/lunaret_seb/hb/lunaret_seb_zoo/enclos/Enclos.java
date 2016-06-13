@@ -2,27 +2,24 @@ package com.lunaret_seb.hb.lunaret_seb_zoo.enclos;
 
 import java.io.Serializable;
 
-/**
- * Created by KEVIN on 07/06/2016.
- */
-public class Enclos implements Serializable {
-
+public class Enclos implements Serializable{
     private String name;
-    private int area;
-private String description;
+    private String area;
+    private String Description;
+    public Enclos(){
 
-    public Enclos(String name, int area, String description) {
+    }
+    public Enclos(String name, String area, String description) {
         this.name = name;
         this.area = area;
-        this.description = description;
+        this.Description = description;
     }
-    public Enclos(String name) {
-        this.name = name;
-    }
+
     @Override
     public String toString() {
-        return  this.getName();
+        return this.name;
     }
+
     public String getName() {
         return this.name;
     }
@@ -30,19 +27,20 @@ private String description;
     public void setName(String name) {
         this.name = name;
     }
-    public String getDescription() {
-        return this.name;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getArea() {
+    public String getArea() {
         return this.area;
     }
 
-    public void setArea(int area) {
+    public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getDescription() {
+        return this.Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
     }
 }

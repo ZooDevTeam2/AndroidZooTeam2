@@ -26,10 +26,14 @@
         <activity android:name=".stock.DetailStockActivity" />
         <activity android:name=".ticket.ListTicketActivity" />
         <activity android:name=".ticket.DetailTicketActivity" />
-        <activity android:name=".enclos.ListEnclos" />
-        <activity android:name=".enclos.DetailEnclos" />
         <activity android:name=".stock.FormAddStockActivity" />
-
+        <activity android:name=".enclos.EnclosActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".enclos.EnclosDetailsActivity" />
         <service
             android:name=".animaux.AnimauxService"
             android:enabled="true"
