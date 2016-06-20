@@ -1,5 +1,7 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Collection;
@@ -12,15 +14,15 @@ import java.util.List;
 public interface Adapter {
     void setNewData(List<Stock> data);
 }
-
+/*
 class ListStockAdapter implements Adapter{
     private List<Stock> data  = Collections.emptyList();
-    private TextView view;
+    private ListView view;
 
 
-    public void setView(TextView view) {
+    public void setView(ListView view) {
         this.view = view;
-        view.setText(computeText());
+        view.getomputeText());
     }
 
     private String computeText() {
@@ -40,3 +42,4 @@ class ListStockAdapter implements Adapter{
         }
     }
 }
+*/

@@ -25,17 +25,16 @@ public class ListStockActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_stock);
         //Display of the text introduction of the activity
 
-        final TextView textView = (TextView) findViewById(R.id.text);
-        final ListStockAdapter adapter = new ListStockAdapter();
-        adapter.setView(textView);
-
-       //listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           // @Override
-            //public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent intent = new Intent(ListStockActivity.this, DetailStockActivity.class).putExtra("stock", listStock.get(position));
-                //startActivity(intent);
-            //}
-        //});
+        final ListView listView = (ListView) findViewById(R.id.list);
+        final ListStockAdapter adapter = new ListStockAdapter(this);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListStockActivity.this, DetailStockActivity.class).putExtra("stock", listStock.get(position));
+                startActivity(intent);
+            }
+        });
 
         //BUTTON FOR ADDING A NEW STOCK
         FloatingActionButton fab_add_anim = (FloatingActionButton) findViewById(R.id.fab_add_anim);

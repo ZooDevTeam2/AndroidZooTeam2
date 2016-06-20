@@ -27,7 +27,7 @@ public class ListStockBinder extends Binder {
     }
 
     public void getFreshData(StockManager manager) {
-
+        service.getFreshData(manager);
     }
 
 }
