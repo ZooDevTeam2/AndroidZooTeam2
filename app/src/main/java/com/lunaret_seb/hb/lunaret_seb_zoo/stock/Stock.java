@@ -12,7 +12,10 @@ public class Stock implements Serializable {
     private int maximum;
     private int id;
 
-    public Stock(String name, int quantities, int maximum,int id) {
+    public Stock() {
+    }
+
+    public Stock(String name, int quantities, int maximum, int id) {
         this.name = name;
         this.quantities = quantities;
         this.maximum = maximum;

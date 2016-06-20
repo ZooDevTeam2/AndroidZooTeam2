@@ -8,28 +8,26 @@ import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 
 /**
  * Created by KEVIN on 10/06/2016.
  */
 public class ListStockBinder extends Binder {
 
-    private ArrayList<Stock> listStock;
-    private ArrayList<Integer> listStockInt = new ArrayList<>();
-    private Service service;
+    //private ArrayList<Stock> listStock;
+   //private ArrayList<Integer> listStockInt = new ArrayList<>();
+    private ListStockIntentService service;
 
-    public ListStockBinder(Service service) {
-        this.service=service;
-    }
+    public ListStockBinder(ListStockIntentService service) {
+        this.service=service;    }
 
     public String getToast(){
         return "Mise à jour de la liste";
     }
 
-    public ArrayList<Stock> getListStock(){
-        StockCRUD stockCRUD = new StockCRUD();
-        listStock = stockCRUD.retrieveAll();
-        return listStock;
+    public void getFreshData(StockManager manager) {
+
     }
 
 }

@@ -49,22 +49,22 @@ public class StockCRUD {
         return null;
         }
 
-public ArrayList<Stock> retrieveAll(Context context){
-    Intent intent = new Intent(context, ListStockIntentService.class);
-    context.startService(intent);
-    ServiceConnection connection = new ServiceConnection(){
-    @Override
-    public void onServiceConnected(ComponentName name, IBinder service) {
-    ListStockBinder binder = (ListStockBinder)service;
-    listStock = binder.getListStock();
-        }
-     @Override
-     public void onServiceDisconnected(ComponentName name) {
+//public ArrayList<Stock> retrieveAll(Context context){
+    //ntent intent = new Intent(context, ListStockIntentService.class);
+    //context.startService(intent);
+    //ServiceConnection connection = new ServiceConnection(){
+    //@Override
+    //public void onServiceConnected(ComponentName name, IBinder service) {
+    //ListStockBinder binder = (ListStockBinder)service;
+    //listStock = binder.getFreshData();
+        //}
+    // @Override
+     //public void onServiceDisconnected(ComponentName name) {
 
-    }
-    };
-     context.bindService(intent, connection ,0);
+    //}
+   // };
+    // context.bindService(intent, connection ,0);
 
-    return listStock;
-        }
+    //return listStock;
+        //}
 }

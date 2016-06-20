@@ -18,8 +18,25 @@ class ListStockAdapter implements Adapter{
     private TextView view;
 
 
+    public void setView(TextView view) {
+        this.view = view;
+        view.setText(computeText());
+    }
+
+    private String computeText() {
+        StringBuilder builder = new StringBuilder("Liste des stocks : \n");
+        for (Stock stock : data) {
+            builder.append(stock.toString()).append('\n');
+        }
+        return builder.toString();
+    }
+
     @Override
     public void setNewData(List<Stock> data) {
+        this.data = data;
+        if (view != null) {
 
+            view.setText(computeText());
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.lunaret_seb.hb.lunaret_seb_zoo.stock;
 
 import android.app.IntentService;
-import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Base64;
@@ -14,12 +13,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
+
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
@@ -58,113 +58,99 @@ public class ListStockIntentService extends IntentService {
         return START_STICKY;
     }
 
-    public static void startCreateRepositoryAction(Context context, String repositoryName, TextView textView) {
-        Intent intent = new Intent(context, ListStockIntentService.class);
-        intent.setAction(CREATE_ACTION);
-        intent.putExtra(REPOSITORY_NAME, repositoryName);
-        view = textView;
-        context.startService(intent);
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+
     }
 
-    public static List<Stock> startSyncLocalRepositoryAction(String username, final TextView textView) {
+    public interface ZooStockClient {
+        @GET("/wildfly-lunaret-rs/rest/stocks")
+        Call<List<Stock>> stocks();
+
+        @POST("/wildfly-lunaret-rs/rest/add")
+        Call<Stock> createStock(@Body Stock stock);
+    }
+
+    public static List<Stock> startSyncLocalRepositoryAction(final TextView textView) {
         // Create a very simple REST adapter which points the GitHub API endpoint.
-        GitHubClient client = ServiceGenerator.createService(GitHubClient.class);
+        ZooStockClient client = ServiceGenerator.createService(ZooStockClient.class);
 
         // Fetch and print a list of the repos of this owner.
         Call<List<Stock>> call =
-                client.repositories(username);
+                client.stocks();
 
         call.enqueue(new Callback<List<Stock>>() {
-                         @Override
-                         public void onResponse(Call<List<Stock>> call, retrofit2.Response<List<Stock>> response) {
-                             if (response.isSuccessful()) {
-                                 StringBuilder builder = new StringBuilder("List of repos online : \n");
-                                 List<Stock> repos = response.body();
-                                 for (Stock repo :
-                                         repos) {
-                                     builder.append(repo.getName()).append('\n');
-                                 }
-                                 textView.setText(builder.toString());
-                                 previousResults = repos;
-                             } else {
-                                 String msg = "error response code from server: " + response.code();
-                                 Log.e(TAG, msg);
-                                 textView.setText(msg);
-                                 previousResults = Collections.emptyList();
-                             }
-                         }
+            @Override
+            public void onResponse(Call<List<Stock>> call, retrofit2.Response<List<Stock>> response) {
+                if (response.isSuccessful()) {
+                    StringBuilder builder = new StringBuilder("List of repos online : \n");
+                    List<Stock> stocks = response.body();
+                    for (Stock stock : stocks) {
+                        builder.append(stock.toString()).append('\n');
+                    }
+                    textView.setText(builder.toString());
+                    previousResults = stocks;
+                } else {
+                    String msg = "error response code from server: " + response.code();
+                    Log.e(TAG, msg);
+                    textView.setText(msg);
+                    previousResults = Collections.emptyList();
+                }
+            }
 
-                         @Override
-                         public void onFailure(Call<List<Stock>> call, Throwable t) {
-                             String msg = t.getMessage();
-                             Log.e(TAG, "failure : " +msg, t);
-                             textView.setText(msg);
-                             previousResults = Collections.emptyList();
-                         }
-                     }
+            @Override
+            public void onFailure(Call<List<Stock>> call, Throwable t) {
+                String msg = t.getMessage();
+                Log.e(TAG, "failure : " + msg, t);
+                textView.setText(msg);
+                previousResults = Collections.emptyList();
+            }
+        }
         );
         return previousResults;
     }
 
-    @Override
-    protected void onHandleIntent(Intent intent) {
-        if (intent != null) {
-            final String action = intent.getAction();
-            if (CREATE_ACTION.equals(action)) {
-                final String param1 = intent.getStringExtra(REPOSITORY_NAME);
-                final TextView textView = view;
-                handleCreateRepository(param1, textView);
-            } else {
-                Log.e(TAG, "Error: unrecognized Action : " + action);
+    public void getFreshData(final StockManager manager) {
+        // Create a very simple REST adapter which points the GitHub API endpoint.
+        ZooStockClient client = ServiceGenerator.createService(ZooStockClient.class);
+
+        // Fetch and print a list of the repos of this owner.
+        Call<List<Stock>> call =
+                client.stocks();
+
+        call.enqueue(new Callback<List<Stock>>() {
+            @Override
+            public void onResponse(Call<List<Stock>> call, retrofit2.Response<List<Stock>> response) {
+                if (response.isSuccessful()) {
+                    manager.setLastResult(response.body());
+                } else {
+                    String msg = "error response code from server: " + response.code();
+                    Log.e(TAG, msg);
+                    List<Stock> fakeList = new ArrayList<Stock>();
+                    Stock stock1 = new Stock();
+                    stock1.setName("Fake Error Repository!!");
+                    fakeList.add(stock1);
+                    manager.setLastResult(fakeList);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Stock>> call, Throwable t) {
+                String msg = t.getMessage();
+                Log.e(TAG, "failure : " +msg, t);
+                List<Stock> fakeList = new ArrayList<Stock>();
+                Stock stock1 = new Stock();
+                stock1.setName("Fake Failure Repository!!");
+                fakeList.add(stock1);
+                manager.setLastResult(fakeList);
             }
         }
-    }
-
-    /**
-     * Handle action Foo in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleCreateRepository( final TextView textview) {
-        // Create a very simple REST adapter which points the GitHub API endpoint.
-        GitHubClient client = ServiceGenerator.createService(GitHubClient.class, USERNAME, PASSWORD);
-        Stock repository = new Stock();
-        repository.toString();
-        final Call<Stock> call = client.createRepository(repository);
-        try {
-            final Response<Stock> execute = call.execute();
-            textview.post(new Runnable() {
-                @Override
-                public void run() {
-                    textview.setText(Integer.toString(execute.code()));
-
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-            textview.post(new Runnable() {
-                @Override
-                public void run() {
-                    textview.setText("Error!");
-                }
-            });
-        }
-    }
-
-
-    public interface GitHubClient {
-        @GET("/users/{owner}/repos")
-        Call<List<Stock>> repositories(
-                //@Path("owner") String owner
         );
-
-        @POST("user/repos")
-        Call<Stock> createRepository(@Body Stock repository);
     }
-
     public static class ServiceGenerator {
 
-        public static final String API_BASE_URL = "http://10.0.2.2";
-
+        public static final String API_BASE_URL = "http://10.0.2.2:8080";
         private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
         private static Retrofit.Builder builder =
@@ -177,17 +163,15 @@ public class ListStockIntentService extends IntentService {
             return retrofit.create(serviceClass);
         }
 
-        public static <S> S createService(Class<S> serviceClass, String username, String password) {
-            if (username != null && password != null) {
-                String credentials = username + ":" + password;
-                final String basic =
-                        "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+    public static <S> S createService(Class<S> serviceClass, String username, String password) {
+        if (username != null && password != null) {
+            String credentials = username + ":" + password;
+            final String basic =
+                    "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
 
-                httpClient.addInterceptor(new Interceptor() {
+            httpClient.addInterceptor(new Interceptor() {
                     @Override
-                    public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
-                        Request original = chain.request();
-
+                    public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {Request original = chain.request();
                         Request.Builder requestBuilder = original.newBuilder()
                                 .header("Authorization", basic)
                                 .header("Accept", "application/json")
