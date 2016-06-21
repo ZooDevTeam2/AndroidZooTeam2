@@ -26,8 +26,10 @@
         <activity android:name=".stock.DetailStockActivity" />
         <activity android:name=".ticket.ListTicketActivity" />
         <activity android:name=".ticket.DetailTicketActivity" />
-        <activity android:name=".stock.FormAddStockActivity" />
         <activity android:name=".enclos.EnclosActivity">
+        <activity android:name=".stock.FormAddStockActivity" />
+        <activity android:name=".enclos.ListEnclos" />
+        <activity android:name=".enclos.DetailEnclos" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,7 +40,9 @@
             android:name=".animaux.AnimauxService"
             android:enabled="true"
             android:exported="true"></service>
-
+        <service
+            android:name=".stock.ListStockIntentService"
+            android:exported="false"></service>
         <activity
             android:name=".ticket.FormAddTicketActivity"
             android:label="@string/title_activity_form_add_ticket"
