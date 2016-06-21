@@ -37,7 +37,7 @@ public class AnimauxService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        IBinder binder= new ListAnimBinder(this);
+        IBinder binder= new ListAnimauxBinder(this);
         return binder;
     }
 
@@ -85,7 +85,7 @@ public class AnimauxService extends Service {
             
         }*/
 
-    // TODO SEND THE LIST "listAnimaux" TO THE "ListeAnimaux" view
+    // TODO SEND THE LIST "listAnimaux" TO THE "ListAnimaux" view
 
         Toast.makeText(this, "Toaster from List Animaux "+ comptAnim , Toast.LENGTH_SHORT).show();
         return START_STICKY;

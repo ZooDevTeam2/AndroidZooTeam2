@@ -9,13 +9,13 @@ import java.util.ArrayList;
  * Created by hb on 13/06/2016.
  */
 
-public class ListAnimBinder extends Binder {
+public class ListAnimauxBinder extends Binder {
 
     private ArrayList<Animaux> listAnimaux;
     private ArrayList<Integer> listAnimauxInt = new ArrayList<>();
     private Service service;
 
-    public ListAnimBinder(Service service) {
+    public ListAnimauxBinder(Service service) {
         this.service=service;
     }
 

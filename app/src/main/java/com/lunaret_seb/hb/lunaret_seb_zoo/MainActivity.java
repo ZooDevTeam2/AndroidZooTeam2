@@ -10,8 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.ListeAnimaux;
-import com.lunaret_seb.hb.lunaret_seb_zoo.enclos.Enclos;
+import com.lunaret_seb.hb.lunaret_seb_zoo.animaux.ListAnimaux;
 import com.lunaret_seb.hb.lunaret_seb_zoo.enclos.EnclosActivity;
 import com.lunaret_seb.hb.lunaret_seb_zoo.stock.ListStockActivity;
 import com.lunaret_seb.hb.lunaret_seb_zoo.ticket.ListTicketActivity;
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
              //   textList.setText("Liste des animaux du zoo");
-                Intent intent = new Intent(MainActivity.this, ListeAnimaux.class);
+                Intent intent = new Intent(MainActivity.this, ListAnimaux.class);
                 startActivity(intent);
             }
         });

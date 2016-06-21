@@ -17,16 +17,9 @@ import com.lunaret_seb.hb.lunaret_seb_zoo.animauxCRUD.AnimauxCRUD;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ListeAnimaux extends AppCompatActivity {
+public class ListAnimaux extends AppCompatActivity {
 
     public final static int REQ_CODE_CHILD = 1;
-    /*
-    private Animaux nanimal1 = new Animaux("totor", "Tiger",  new Date(2010,06,06));
-    private Animaux nanimal2 = new Animaux("tator", "Rabit",  new Date(2011,06,06));
-    private Animaux nanimal3 = new Animaux("totur", "Seale",  new Date(1999,06,06));
-    private Animaux nanimal4 = new Animaux("titir", "Horse",  new Date(2002,06,06));
-    private Animaux nanimal5 = new Animaux("tontonr", "Tiger",  new Date(2014,06,06));
-*/
 
     private ArrayList<String> listAnimauxSTR = new ArrayList<>();
 
@@ -60,8 +53,8 @@ public class ListeAnimaux extends AppCompatActivity {
         vueAnimaux.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               // Toast.makeText(ListeAnimaux.this, listAnimaux.get(position).getName() , Toast.LENGTH_SHORT).show();
-                Intent intentOnItemClick = new Intent(ListeAnimaux.this, DetailAnimal.class).putExtra("animalName", listAnimaux.get(position).getName());
+               // Toast.makeText(ListAnimaux.this, listAnimaux.get(position).getName() , Toast.LENGTH_SHORT).show();
+                Intent intentOnItemClick = new Intent(ListAnimaux.this, DetailAnimal.class).putExtra("animalName", listAnimaux.get(position).getName());
                 startActivity(intentOnItemClick);
             }
         });
@@ -72,7 +65,7 @@ public class ListeAnimaux extends AppCompatActivity {
             fab_add_anim.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intentOnClickAdd = new Intent(ListeAnimaux.this, FormAddAnimaux.class);
+                    Intent intentOnClickAdd = new Intent(ListAnimaux.this, FormAddAnimaux.class);
                     startActivityForResult(intentOnClickAdd,REQ_CODE_CHILD);
 
                 }

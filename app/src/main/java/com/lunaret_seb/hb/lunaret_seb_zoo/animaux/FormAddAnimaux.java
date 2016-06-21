@@ -36,7 +36,7 @@ public class FormAddAnimaux extends AppCompatActivity {
 
 
                     final String animalFromForm = fieldName.getText().toString()+"*"+fieldSpecie.getText().toString()+"*"+fieldAge.getText().toString();
-                    Intent intent = new Intent(FormAddAnimaux.this, ListeAnimaux.class).putExtra("animalFromForm",animalFromForm);
+                    Intent intent = new Intent(FormAddAnimaux.this, ListAnimaux.class).putExtra("animalFromForm",animalFromForm);
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();
