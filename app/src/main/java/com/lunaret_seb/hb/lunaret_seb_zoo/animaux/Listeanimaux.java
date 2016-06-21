@@ -38,14 +38,14 @@ public class ListeAnimaux extends AppCompatActivity {
         final TextView textList = (TextView)findViewById(R.id.text_list_app);
         textList.setText("Liste des animaux du zoooooooooooooooooooo");
 
-
+//--à remplacer par le fait que le serviceAnimaux revoi une liste via le WebService----------------------
         AnimauxCRUD animauxCRUD = new AnimauxCRUD();
         final ArrayList<Animaux> listAnimaux = animauxCRUD.retrieveAll();
 
         for(Animaux animal : listAnimaux){
             listAnimauxSTR.add(animal.getName());
         }
-
+//----------------------------------------
 
         ArrayAdapter<Animaux> adapter = new ArrayAdapter<Animaux>(this,R.layout.item_liste, R.id.text, listAnimaux);
         ListView vueAnimaux = (ListView) findViewById(R.id.list_anim);

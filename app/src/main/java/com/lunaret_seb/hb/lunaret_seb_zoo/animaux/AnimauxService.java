@@ -10,32 +10,56 @@ import com.lunaret_seb.hb.lunaret_seb_zoo.animauxCRUD.AnimauxCRUD;
 
 import java.util.ArrayList;
 
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class AnimauxService extends Service {
+    //  private IBinder mBinder = new MyBinder();
 
     private ArrayList<Animaux> listAnimaux = new ArrayList<>();
+    public static final String BASE_URL = "http://127.0.0.1:8080";
+    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+    private static Retrofit.Builder builder =
+            new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create());
+
+    public static <S> S createService(Class<S> serviceClass) {
+        Retrofit retrofit = builder.client(httpClient.build()).build();
+        return retrofit.create(serviceClass);
+    }
+
 
     public AnimauxService() {
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        IBinder binder= new ListAnimBinder(this);
+        return binder;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-/*
-        AnimauxCRUD animauxCRUD = new AnimauxCRUD();
-        final ArrayList<Animaux> listAnimaux = animauxCRUD.retrieveAll();
 
-        ArrayAdapter<Animaux> adapter = new ArrayAdapter<Animaux>(this, R.layout.item_liste, R.id.text, listAnimaux);
-        ListView vueAnimaux = (ListView) findViewById(R.id.list_anim);
-        vueAnimaux.setAdapter(adapter);
-*/
+        /*
+        Retrofit.Builder builder = new RestAdapter.Builder();
+        builder.setEndpoint("http://127.0.0.1:8080"); // Root URL of the server
+        RestAdapter build = builder.build();
+        AnimauxService animauxService = build.create(AnimauxService.class);
+       // Account observable = animauxService.getAccount("12345");
+       */
     }
+
+
+/* TODO
+* getRepostoty
+* call.enqueue(new Callback<List<Repository>>() -> onResponse -> onFailure */
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -46,12 +70,24 @@ public class AnimauxService extends Service {
         ArrayList<String> listAnimSTR=  extra.getStringArrayList("listAnim");
 
         AnimauxCRUD animauxCRUD = new AnimauxCRUD();
-
+        int comptAnim = 0;
         for(String animalName : listAnimSTR){
             listAnimaux.add(animauxCRUD.retrieve(animalName));
+            comptAnim += 1;
         }
 
-        Toast.makeText(this, "Toaster from List Animaux" , Toast.LENGTH_SHORT).show();
+/*
+        AnimauxCRUD animauxCRUD = new AnimauxCRUD();
+        final ArrayList<Animaux> listAnimaux = animauxCRUD.retrieveAll();
+
+        for (Animaux animal : listAnimaux) {
+
+            
+        }*/
+
+    // TODO SEND THE LIST "listAnimaux" TO THE "ListeAnimaux" view
+
+        Toast.makeText(this, "Toaster from List Animaux "+ comptAnim , Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
 
