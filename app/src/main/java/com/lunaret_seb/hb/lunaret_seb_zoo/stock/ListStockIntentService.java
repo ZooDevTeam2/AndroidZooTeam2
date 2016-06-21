@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -25,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
+
 
 
 public class ListStockIntentService extends IntentService {
@@ -51,10 +50,6 @@ public class ListStockIntentService extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-        //for(int stockId : listStockId){
-        //   listStock.add(stockCRUD.retrieve(stockId));
-       // }
         return START_STICKY;
     }
 
