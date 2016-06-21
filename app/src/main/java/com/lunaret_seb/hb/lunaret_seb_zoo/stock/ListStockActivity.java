@@ -23,13 +23,21 @@ public class ListStockActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_stock);
-        //Display of the text introduction of the activity
 
+        //Initialization of the listView form the xml
         final ListView listView = (ListView) findViewById(R.id.list);
+        //Initialization of the custom adapter to display a list of the stock
         final ListStockAdapter adapter = new ListStockAdapter(this);
+        //Initialisation of a custom Manager for stock.
+        //The manager is in charge to bind the activity to the service
         StockManager manager = new StockManager();
+        //Application of the manager method refreshList. This method links to the service to get the
+        //updated list.
         manager.refreshList(ListStockActivity.this, adapter);
+        //Then, set the adapter in the listView
         listView.setAdapter(adapter);
+
+        //The goal of this component is to send a object via the put Extra to the Detail Activity.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
