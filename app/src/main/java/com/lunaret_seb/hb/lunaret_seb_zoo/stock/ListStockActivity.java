@@ -27,6 +27,8 @@ public class ListStockActivity extends AppCompatActivity {
 
         final ListView listView = (ListView) findViewById(R.id.list);
         final ListStockAdapter adapter = new ListStockAdapter(this);
+        StockManager manager = new StockManager();
+        manager.refreshList(ListStockActivity.this, adapter);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
