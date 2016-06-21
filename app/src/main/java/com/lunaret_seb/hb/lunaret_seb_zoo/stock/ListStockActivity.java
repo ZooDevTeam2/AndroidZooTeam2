@@ -31,8 +31,10 @@ public class ListStockActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListStockActivity.this, DetailStockActivity.class).putExtra("stock", listStock.get(position));
-                startActivity(intent);
+               Stock stock = (Stock) adapter.getItem(position);
+               Intent intent = new Intent(ListStockActivity.this, DetailStockActivity.class);
+               intent.putExtra("stock", stock);
+               startActivity(intent);
             }
         });
 
